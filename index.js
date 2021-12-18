@@ -6,9 +6,16 @@ const Engineer = require("./lib/Engineer");
 const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
 
+const appMenu = () => {
+    console.log(`
+    =====================================
+    Welcome to the TEAM generator. Please begin to build your team.
+    =====================================
+    `);
 
 const managerPrompt = () => {
-    return inquirer.prompt ([
+    // console.log("Begin to build your team");
+     inquirer.prompt ([
         {
             type: 'input',
             name: 'name',
@@ -176,26 +183,11 @@ const internPrompt = () => {
             }
         }
     ]);
+
 };
 
+managerPrompt();
 
-
-
-
-
-
-
-const appMenu = () => {
-    console.log(`
-    =====================================
-    Welcome to the TEAM generator
-    =====================================
-    `);
 }
 
-const init = function () {
-    appMenu();
-    managerPrompt;
-}
-
-init ();
+appMenu()
