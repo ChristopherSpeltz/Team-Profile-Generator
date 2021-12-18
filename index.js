@@ -6,12 +6,18 @@ const Engineer = require("./lib/Engineer");
 const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
 
+const generatePage = require("./src/generatePage");
+
+const allEmployees = [];
+
 const appMenu = () => {
     console.log(`
     =====================================
     Welcome to the TEAM generator. Please begin to build your team.
     =====================================
     `);
+    managerPrompt()
+}
 
 const managerPrompt = () => {
     // console.log("Begin to build your team");
@@ -68,11 +74,15 @@ const managerPrompt = () => {
                 }
             }
         }
-    ]);
+    ]).then(responseManager => {
+        const newMgr = new Manager(responseManager.officeNumber, responseManager.name, responseManager.email, responseManager.id)
+        allEmployees.push(newMgr)
+        newEmployee()
+    })
 };
 
 const engineerPrompt = () => {
-    return inquirer.prompt ([
+    inquirer.prompt ([
         {
             type: 'input',
             name: 'name',
@@ -125,11 +135,15 @@ const engineerPrompt = () => {
                 }
             }
         }
-    ]);
+    ]).then(responseEngineer => {
+        const newEng = new Engineer(responseEngineer.gitHub, responseEngineer.name, responseEngineer.id, responseEngineer.email)
+        allEmployees.push(newEng)
+        newEmployee()
+    })
 };
 
 const internPrompt = () => {
-    return inquirer.prompt ([
+    inquirer.prompt ([
         {
             type: 'input',
             name: 'name',
@@ -182,12 +196,34 @@ const internPrompt = () => {
                 }
             }
         }
-    ]);
+    ]).then(responseIntern => {
+        const newInt = new Intern(responseIntern.email, responseEngineer.name, responseEngineer.id, responseEngineer.school)
+        allEmployees.push(newInt)
+        newEmployee()
+    })
 
 };
 
-managerPrompt();
-
+function newEmployee() {
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Do you want to add a new employee?",
+            name: "role",
+            choices:["Engineer", "Intern", "No"]
+        },
+    ]).then((response) => {
+        if (response.role === "Engineer") {
+            //new engineer prompts
+            engineerPrompt();
+        } else if (response.role === "Intern") {
+            //new intern prompts
+            internPrompt();
+        } else {
+            //could final else  be used to generate html?
+            generatePage(allEmployees)
+        }
+    })
 }
 
 appMenu()
