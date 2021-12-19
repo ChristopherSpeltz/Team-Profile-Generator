@@ -19,6 +19,7 @@ const appMenu = () => {
     managerPrompt()
 }
 
+// manager questioning
 const managerPrompt = () => {
     // console.log("Begin to build your team");
      inquirer.prompt ([
@@ -81,6 +82,7 @@ const managerPrompt = () => {
     })
 };
 
+// engineer questioning
 const engineerPrompt = () => {
     inquirer.prompt ([
         {
@@ -141,7 +143,7 @@ const engineerPrompt = () => {
         newEmployee()
     })
 };
-
+// intern questioning
 const internPrompt = () => {
     inquirer.prompt ([
         {

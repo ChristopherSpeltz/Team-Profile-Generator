@@ -12,19 +12,19 @@ test('test for employee object', () => {
 test('test for employee name', () => {
     const employee = new Employee("test@test.com", 1, 'Chris');
 
-    expect(employee.getName()).toHaveProperty('name');
+    expect(employee.getName()).toEqual('Chris');
 });
 
 test('test for employee ID', () => {
     const employee = new Employee("test@test.com", 1, 'Chris');
 
-    expect(employee.getId()).toHaveProperty('id');
+    expect(employee.getId()).toEqual(1);
 });
 
 test('test for employee email', () => {
     const employee = new Employee("test@test.com", 1, 'Chris');
 
-    expect(employee.getEmail()).toHaveProperty('email');
+    expect(employee.getEmail()).toEqual('test@test.com');
 });
 
 test('test for role of employee', () => {
