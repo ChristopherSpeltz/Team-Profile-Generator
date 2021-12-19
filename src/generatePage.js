@@ -22,6 +22,9 @@ function generatePage(arr) {
         }else if(arr[i].getRole() == "Engineer"){
             template += `
 <h2>Engineer Name : ${arr[i].name}</h2>`
+        }else if(arr[i].getRole() == "Intern"){
+            template += `
+<h2>Intern Name : ${arr[i].name}</h2>`
         }
     }
 

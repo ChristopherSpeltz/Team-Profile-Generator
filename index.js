@@ -136,7 +136,7 @@ const engineerPrompt = () => {
             }
         }
     ]).then(responseEngineer => {
-        const newEng = new Engineer(responseEngineer.gitHub, responseEngineer.name, responseEngineer.id, responseEngineer.email)
+        const newEng = new Engineer(responseEngineer.github, responseEngineer.name, responseEngineer.id, responseEngineer.email)
         allEmployees.push(newEng)
         newEmployee()
     })
@@ -197,7 +197,7 @@ const internPrompt = () => {
             }
         }
     ]).then(responseIntern => {
-        const newInt = new Intern(responseIntern.email, responseEngineer.name, responseEngineer.id, responseEngineer.school)
+        const newInt = new Intern(responseIntern.email, responseIntern.name, responseIntern.id, responseIntern.school)
         allEmployees.push(newInt)
         newEmployee()
     })
