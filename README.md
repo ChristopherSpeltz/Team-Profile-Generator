@@ -21,6 +21,9 @@ run "node index" from command line
 
 
 ## ScreenShots
+![image](https://user-images.githubusercontent.com/37876358/146688352-424ef2e8-eda3-4afc-84bd-64ed5da671d1.png)
+![image](https://user-images.githubusercontent.com/37876358/146688382-e9653df1-8624-4bd3-9435-8a9aafeff8c1.png)
+![image](https://user-images.githubusercontent.com/37876358/146688397-7e1877f7-0bbc-4aee-9bd6-cea18a7cd9c2.png)
 
 
 ## Contributors
